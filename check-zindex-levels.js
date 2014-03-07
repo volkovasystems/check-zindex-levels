@@ -18,10 +18,11 @@ try{ var base = window; }catch( error ){ var base = exports; }
 				var zIndexCount = nodeList.length;
 				for( var index = 0; index < zIndexCount; index++ ){
 					var node = $( nodeList[ index ] );
-					zIndexList.push( parseInt( node.css( "z-index" ) ) ) );
+					var zIndex = parseInt( node.css( "z-index" ) );
+					zIndexList.push( zIndex );
 				}
 
-				//If all of them as the same index.
+				//If all of them has the same index.
 				if( _.union( zIndexList, zIndexList ).length == 1 ){
 					return true;
 				}
